@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Page</title>
+</head>
+<body>
+{% if user %}
+<h1>Welcome {{ username }}</h1>
+<a href="/logout">Log out</a>
+{% elif not user%}
+<h1>No User logged in</h1>
+{% endif %}
+</body>
+</html>
