@@ -6,7 +6,7 @@
 </head>
 <body>
 <center>
-<form action="/authentication/signup/" method="post" background-color="red">
+<form action="/accounts/signup/" method="post" background-color="red">
     {% csrf_token %}
         {{ form.as_p }}
     <input type="submit" value="sign up">
