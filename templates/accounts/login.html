@@ -6,12 +6,12 @@
 </head>
 <body>
 <center>
-    <form action="/accounts/login/" method="post">
+    <form action='/accounts/login/' method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="login">
     </form>
-{#    <a href="/accounts/signup/">Have not registered signup here</a>#}
+    <a href="/accounts/signup/">Have not registered signup here</a>
 </center>>
 </body>
 </html>
