@@ -3,14 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up page</title>
+    <style>
+        form {
+            width: 500px;
+            margin: 0 auto;
+        }
+        span {
+            display: block;
+            padding: 25px;
+        }
+        label {
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
-<center>
-<form action="/accounts/signup/" method="post" background-color="red">
+
+<form action={% url 'signup' %} method="post">
     {% csrf_token %}
-        {{ form.as_p }}
+        {{ form }}
     <input type="submit" value="sign up">
 </form>
-</center>
+
 </body>
 </html>

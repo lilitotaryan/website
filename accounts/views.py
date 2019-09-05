@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout, login
 
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='log_in')
 def details(request):
     return render(request, "./accounts/details.html", {"user": request.user})
 
@@ -15,7 +15,7 @@ def logged_out(user):
     return user.is_anonymous
 
 
-@user_passes_test(logged_out, login_url='/accounts/')
+@user_passes_test(logged_out, login_url='details')
 def log_in(request):
     if request.method == 'POST':
         form = AuthenticationForm(request=request, data=request.POST)
@@ -32,13 +32,13 @@ def log_in(request):
     return render(request, "./accounts/login.html", {"form": form})
 
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='log_in')
 def log_out(request):
     logout(request)
     return redirect('log_in')
 
 
-@user_passes_test(logged_out, login_url='/accounts/')
+@user_passes_test(logged_out, login_url='details')
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -52,6 +52,3 @@ def signup(request):
         form = UserCreationForm()
 
     return render(request, "./accounts/signup.html", {"form": form})
-
-
-

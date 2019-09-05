@@ -3,15 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <style>
+        form {
+            width: 500px;
+            margin: 0 auto;
+        }
+        #button {
+            margin-bottom: 10px;
+        }
+        a {
+            margin-left: 700px;
+        }
+    </style>
 </head>
 <body>
-<center>
-    <form action='/accounts/login/' method="post">
+    <form action={% url 'log_in' %} method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="login">
+        <input type="submit" value="login" id="button">
     </form>
-    <a href="/accounts/signup/">Have not registered signup here</a>
-</center>>
+    <a href={% url 'signup' %}>Have not registered signup here</a>
 </body>
 </html>

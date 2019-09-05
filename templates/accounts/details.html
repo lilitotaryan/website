@@ -6,6 +6,6 @@
 </head>
 <body>
 <h1>Welcome {{ user.username }}</h1>
-<a href="/accounts/logout/">Log out</a>
+<a href={% url 'log_out' %}>Log out</a>
 </body>
 </html>
